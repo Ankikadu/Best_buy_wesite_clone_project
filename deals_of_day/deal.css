@@ -1,3 +1,7 @@
+body {
+    font-family: Human BBY Digital, Human Fallback, Arial, Helvetica, sans-serif;
+}
+
 #heading {
     height: 100px;
     width: 95%;
@@ -17,13 +21,17 @@ h1 {
 }
 
 #head_right {
-    height: 30px;
+    height: 40px;
     width: 100px;
     background-color: white;
     font-size: 20px;
     margin-top: 20px;
     color: black;
     padding: 10px;
+}
+
+#b11 {
+    width: 400px;
 }
 
 #box1 {
@@ -35,7 +43,8 @@ h1 {
 #box2 {
     display: grid;
     grid-template-columns: repeat(4, 23%);
-    grid-gap: 15px;
+    margin-bottom: 50px;
+    margin-left: 30px;
 }
 
 #box2>div {
@@ -81,7 +90,7 @@ button {
     width: 120px;
     height: 30px;
     background-color: rgb(240, 236, 11);
-    margin: 30px 70px;
+    margin-top: 30px;
 }
 
 #b1 {
@@ -98,4 +107,67 @@ button {
     grid-gap: 20px;
     text-align: center;
     margin-left: 30px;
+}
+
+#box3 {
+    height: 350px;
+    width: 850px;
+    border: 1px solid gray;
+    padding: 20px;
+    margin: auto;
+}
+
+#b {
+    margin-left: 30px;
+}
+
+#b1 {
+    display: grid;
+    grid-template-columns: 400px 400px;
+}
+
+#b1>div {
+    border: 1px solid gray;
+    padding: 15px;
+    height: 200px;
+    margin-left: 30px;
+    background-color: rgb(245, 245, 252);
+}
+
+#email,
+#numb {
+    height: 30px;
+    width: 250px;
+}
+
+#t1 {
+    font-size: 10px;
+    color: gray;
+}
+
+#b2 {
+    display: flex;
+    height: 300px;
+    border: 1px solid gray;
+}
+
+#box3 {
+    margin: 50px 230px;
+}
+
+#summary {
+    display: grid;
+    grid-template-rows: 60px 170px;
+    margin: 30px 30px;
+}
+
+#summary>div {
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+#s1 {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, 50%);
 }

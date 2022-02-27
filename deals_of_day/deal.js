@@ -150,43 +150,103 @@ var data = [{
     }
 ];
 
-data.map(function(elem) {
+displayProduct(data)
 
-    var mainDiv = document.createElement("div");
-    mainDiv.className = "divadd"
+var cartArr = JSON.parse(localStorage.getItem("cartPage")) || []
+    // displayCartpage(cartArr)
 
-    var div1 = document.createElement("div")
-    div1.className = "box"
+function displayProduct(data) {
+    document.querySelector("#box2").textContent = ""
 
-    var img = document.createElement("img");
-    img.setAttribute("src", elem.image);
+    data.map(function(elem) {
+        var mainDiv = document.createElement("div");
+        mainDiv.className = "divadd"
 
-    var h4 = document.createElement("h4");
-    h4.textContent = elem.name;
+        var div1 = document.createElement("div")
+        div1.className = "box"
 
-    var h5 = document.createElement("h5");
-    h5.textContent = elem.review;
+        var img = document.createElement("img");
+        img.setAttribute("src", elem.image);
 
-    var h1 = document.createElement("h1");
-    h1.textContent = elem.price;
+        var h4 = document.createElement("h4");
+        h4.textContent = elem.name;
 
-    var p2 = document.createElement("p2");
-    p2.textContent = elem.save;
+        var h5 = document.createElement("h5");
+        h5.textContent = elem.review;
 
-    var p3 = document.createElement("p3");
-    p3.textContent = elem.act_price;
+        var h2 = document.createElement("h2");
+        h2.textContent = elem.price;
 
-    var p4 = document.createElement("p4");
-    p4.textContent = elem.deal;
+        var p2 = document.createElement("p2");
+        p2.textContent = elem.save;
 
-    var add = document.createElement("button")
-    add.className = "add"
-    add.textContent = "Add to Cart"
+        var p3 = document.createElement("p3");
+        p3.textContent = elem.act_price;
+
+        var p4 = document.createElement("p4");
+        p4.textContent = elem.deal;
+
+        var add = document.createElement("button")
+        add.className = "add"
+        add.textContent = "Add to Cart"
+
+        add.addEventListener("click", function() {
+            // displaycart(elem)
+            // displayPrice(cartArr)
+
+        })
 
 
-    mainDiv.append(p2, p3);
-    div1.append(img, h4, h5, h1, mainDiv, p4, add)
-    document.getElementById("box2").append(div1);
+        mainDiv.append(p2, p3);
+        div1.append(img, h4, h5, h2, mainDiv, p4, add)
+        document.querySelector("#box2").append(div1);
 
 
-});
+    })
+}
+
+// function displaycart(elem) {
+//     var cartObj = {
+//         image: elem.img,
+//         title: elem.name,
+//         price: elem.price
+//     }
+//     cartArr.push(cartObj)
+//     localStorage.setItem("cartPage", JSON.stringify(cartArr))
+//     displayCartpage(cartArr)
+// }
+
+// function displayCartpage(cartArr) {
+//     document.querySelector("#cartbox").textContent = ""
+//     cartArr.map(function(el, index) {
+//         var div2 = document.createElement("div")
+//         div2.className = "box2"
+//         var div3 = document.createElement("div")
+//         var div4 = document.createElement("div")
+//         div3.className = "div3"
+//         div4.className = "div4"
+//         var image = document.createElement("img")
+//         image.className = "image2"
+//         var title = document.createElement("h5")
+//         image.setAttribute("src", el.image)
+//         title.textContent = el.title
+//         var span1 = document.createElement("span")
+//         span1.className = "material-icons"
+//         span1.textContent = "add"
+//         span1.style.color = "blue"
+//         var span2 = document.createElement("span")
+//         span2.className = "material-icons"
+//         span2.textContent = "remove"
+//         div3.append(title)
+//         div4.append(span1, span2)
+//         div2.append(image, div3, div4)
+//         document.querySelector("#cartbox").append(div2)
+
+//         span1.addEventListener("click", function() {
+//             addItem(index)
+//         })
+//         span2.addEventListener("click", function() {
+//             removeItem(index)
+//         })
+//     })
+// }
