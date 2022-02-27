@@ -91,3 +91,11 @@ button {
 #b1>div {
     border: 1px solid gray;
 }
+
+#b4_1,
+#b4_2 {
+    display: flex;
+    grid-gap: 20px;
+    text-align: center;
+    margin-left: 30px;
+}
