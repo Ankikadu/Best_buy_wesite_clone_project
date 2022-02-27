@@ -150,103 +150,65 @@ var data = [{
     }
 ];
 
-displayProduct(data)
+// var data =JSON.parse(localStorage.getItem("data"));
+var cartarr = JSON.parse(localStorage.getItem("cartitem")) || [];
+setdata(data);
 
-var cartArr = JSON.parse(localStorage.getItem("cartPage")) || []
-    // displayCartpage(cartArr)
 
-function displayProduct(data) {
-    document.querySelector("#box2").textContent = ""
+function setdata(data) {
+    var box = document.getElementById("box2").innerHTML;
+    box = "";
+    data.forEach(function(elem) {
 
-    data.map(function(elem) {
-        var mainDiv = document.createElement("div");
-        mainDiv.className = "divadd"
 
-        var div1 = document.createElement("div")
-        div1.className = "box"
+        var maindiv = document.createElement("div");
 
-        var img = document.createElement("img");
-        img.setAttribute("src", elem.image);
+        var image = document.createElement("img");
+        image.src = elem.image;
 
-        var h4 = document.createElement("h4");
-        h4.textContent = elem.name;
+        var name = document.createElement("p");
+        name.textContent = elem.name;
 
-        var h5 = document.createElement("h5");
-        h5.textContent = elem.review;
+        var h5 = document.createElement("p");
+        h5.innerHTML = `&#9733&#9733&#9733&#9733&#9734`;
+        h5.style.color = "rgb(255, 195, 31)";
+        h5.style.fontSize = "20px"
 
-        var h2 = document.createElement("h2");
-        h2.textContent = elem.price;
+        var price = document.createElement("p");
+        price.textContent = elem.price;
 
-        var p2 = document.createElement("p2");
-        p2.textContent = elem.save;
+        var save = document.createElement("p");
+        save.innerText = "save";
+        save.style.background = "brown";
+        save.style.color = "white"
+        save.style.width = "40px"
 
-        var p3 = document.createElement("p3");
-        p3.textContent = elem.act_price;
+        var p2 = document.createElement("p");
+        p2.innerText = elem.act_price;
 
-        var p4 = document.createElement("p4");
-        p4.textContent = elem.deal;
+        var div3 = document.createElement("div");
+        div3.setAttribute("id", "myflex")
 
-        var add = document.createElement("button")
-        add.className = "add"
-        add.textContent = "Add to Cart"
+        var deal = document.createElement("p");
+        deal.innerText = elem.deal;
 
-        add.addEventListener("click", function() {
-            // displaycart(elem)
-            // displayPrice(cartArr)
 
+        var btn = document.createElement("button");
+        btn.innerText = "Add to Cart";
+        maindiv.addEventListener("click", function() {
+            addtocart(elem);
         })
-
-
-        mainDiv.append(p2, p3);
-        div1.append(img, h4, h5, h2, mainDiv, p4, add)
-        document.querySelector("#box2").append(div1);
+        div3.append(save, p2)
+        maindiv.append(image, name, h5, price, div3, deal, btn);
+        document.getElementById("box2").append(maindiv);
 
 
     })
 }
 
-// function displaycart(elem) {
-//     var cartObj = {
-//         image: elem.img,
-//         title: elem.name,
-//         price: elem.price
-//     }
-//     cartArr.push(cartObj)
-//     localStorage.setItem("cartPage", JSON.stringify(cartArr))
-//     displayCartpage(cartArr)
-// }
-
-// function displayCartpage(cartArr) {
-//     document.querySelector("#cartbox").textContent = ""
-//     cartArr.map(function(el, index) {
-//         var div2 = document.createElement("div")
-//         div2.className = "box2"
-//         var div3 = document.createElement("div")
-//         var div4 = document.createElement("div")
-//         div3.className = "div3"
-//         div4.className = "div4"
-//         var image = document.createElement("img")
-//         image.className = "image2"
-//         var title = document.createElement("h5")
-//         image.setAttribute("src", el.image)
-//         title.textContent = el.title
-//         var span1 = document.createElement("span")
-//         span1.className = "material-icons"
-//         span1.textContent = "add"
-//         span1.style.color = "blue"
-//         var span2 = document.createElement("span")
-//         span2.className = "material-icons"
-//         span2.textContent = "remove"
-//         div3.append(title)
-//         div4.append(span1, span2)
-//         div2.append(image, div3, div4)
-//         document.querySelector("#cartbox").append(div2)
-
-//         span1.addEventListener("click", function() {
-//             addItem(index)
-//         })
-//         span2.addEventListener("click", function() {
-//             removeItem(index)
-//         })
-//     })
-// }
+function addtocart(elem) {
+    console.log(elem);
+    cartarr.push(elem);
+    localStorage.setItem("cartitem", JSON.stringify(cartarr));
+    alert("your product is added succesfully");
+}
